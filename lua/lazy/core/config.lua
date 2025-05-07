@@ -45,6 +45,7 @@ M.defaults = {
     -- Repeated update/check operations will not run again until this
     -- cooldown period has passed.
     cooldown = 0,
+    disable_update = false,
   },
   pkg = {
     enabled = true,
