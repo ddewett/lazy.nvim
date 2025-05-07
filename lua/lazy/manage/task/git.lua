@@ -109,11 +109,15 @@ M.log = {
       vim.list_extend(args, opts.args or Config.options.git.log)
     end
 
+    if not Config.options.disable_updates then
     self:spawn("git", {
-      args = args,
-      cwd = self.plugin.dir,
-    })
-
+          args = args, 
+          cwd = self.plugin.dir 
+        })
+    else
+      print("Updates are disabled.")
+    end
+    
     -- for local plugins, mark as needing updates only if local is
     -- behind upstream, i.e. if git log gave no output
     if opts.check and self.plugin._.is_local then
